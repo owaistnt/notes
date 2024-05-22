@@ -1,7 +1,7 @@
 ### rsync for file transfer. Better alternative to SCP command.
 rsync dir1 dir2
 
-Where dir could be ==local or NFS storage==.
+Where dir could be *local or NFS storage*.
 
 
 ### Dry Run
