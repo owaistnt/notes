@@ -28,3 +28,6 @@ scr -pr
 -p preserves the date of file
 -r for recursive i.e all the files in a directory
 
+
+[Back to Home](index.md)
+

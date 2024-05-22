@@ -76,3 +76,5 @@ device  mountLocation   fs  options <dump> <pass>
 # Use command
 sudo blkid
 
+[Back to Home](index.md)
+
