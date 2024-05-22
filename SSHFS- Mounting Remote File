@@ -1,0 +1,26 @@
+#SSHFS Mouting Remote file/folder
+
+#Installing
+sudo apt install sshfs
+or
+sudo dnf install fuse-sshfs
+
+#SSFS Command
+
+ssfs user@ipaddress:/home/username/remote_folder /home/localusername/remote_folder
+
+# Then using mount command once can see folder mounted as type fuse.sshfs
+
+#Unmount
+
+umount remote_folder
+or
+fusermount -u remote_folder.
+
+#Public key Authentication.
+##Generating the key
+ssh-keygen //Then follow the instructions
+
+
+##Sending the key
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@serverIp

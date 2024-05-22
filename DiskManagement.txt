@@ -1,0 +1,78 @@
+Listing Block devices
+lsblk
+or
+sudo fdisk -l
+
+
+//check mounted partitions
+mount | grep "sdb"
+
+
+Unmount partitions
+sudo umount /dev/sdb
+or
+sudo umount /media/owais/disk (this is the mount location)
+
+
+Wiping the drive
+
+sudo fdisk /dev/sdb
+//This will enter into prompt
+
+Press P
+// Will list all the partition of current device
+Press M
+// This will list all the supported commands
+
+Press g
+//To create new GPT partition table
+
+Now
+Pressing P
+// Will not give any partition in the list
+
+Press N
+//To start process of creating partition
+
+
+Lastly
+Press W
+//To write the changes to device..
+
+Now we have a new partition table and partition but it doesnot have any File System. To create file system we have mkfs commend
+
+e.g sudo mkfs.ext4 /dev/sdb1 //This will work
+but sudo mkfs.exfat /dev/sdb1 //will not work out of the box as exfat is windows proprietery stuff hence you will hve to install some packages
+
+sudo apt install exfat-utils exfat-fuse
+or for fedora
+sudo dnf install fuse-exfat exfat-utils
+//Now should work
+sudo mkfs.exfat /dev/sdb1
+or
+sudo mkfs.exfat -n "label" /dev/sdb1
+
+
+//Space utilization of mounted devices
+df -h
+
+//Mounting in general
+sudo mount /dev/sdb1 /mnt/disk1/
+
+//Install disk monitor ncdu
+which ncdu // to check if its already install
+
+sudo apt install ncdu
+or
+sudo dnf install ncdu
+
+For /etc/fstab see https://www.youtube.com/watch?v=A7xH74o6kY0
+//Simplest fstab entry look like
+device  mountLocation   fs  options <dump> <pass>
+/dev/sdb1 /mnt/disk1 ext4 defaults 0 0
+
+
+# Getting the UUID
+# Use command
+sudo blkid
+
